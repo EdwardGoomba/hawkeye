@@ -27,6 +27,10 @@ const CameraViewer = styled.div`
   overflow: hidden;
   position: relative;
   border: 2px solid #222831;
+
+  @media (max-width: 420px) {
+    height: 250px;
+  }
 `
 
 const CameraImage = styled.img`
