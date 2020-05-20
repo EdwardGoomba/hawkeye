@@ -78,6 +78,7 @@ const CameraButton = styled.button`
 const ControlPanel = styled.div`
   display: grid;
   justify-content: center;
+  touch-action: none;
 `
 
 const ControlCircle = styled.div`
@@ -85,7 +86,6 @@ const ControlCircle = styled.div`
   height: 250px;
   width: 250px;
   border-radius: 50%;
-  touch-action: none;
 `
 
 const Home = ({ cameraData }) => {
