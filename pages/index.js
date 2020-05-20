@@ -62,6 +62,8 @@ const Sources = styled.div`
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 1fr;
+  align-content: start;
+  gap: 10px;
 `
 
 const CameraButton = styled.button`
