@@ -1,17 +1,12 @@
 import styled from 'styled-components'
 
+import Header from '../components/Header'
+
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 1fr;
 `
-
-const Header = styled.div`
-  background: pink;
-`
-
-const Logo = styled.h2``
-const Tagline = styled.h4``
 
 const CameraViewer = styled.div`
   background: yellow;
@@ -19,10 +14,7 @@ const CameraViewer = styled.div`
 
 const Home = () => (
   <Container>
-    <Header>
-      <Logo>HAWKEYE</Logo>
-      <Tagline>Connecting Your World</Tagline>
-    </Header>
+    <Header />
     <CameraViewer>
       <p>Camera goes here</p>
     </CameraViewer>

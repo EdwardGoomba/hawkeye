@@ -5,26 +5,31 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: #f7f9fc;
+    background: #eeeeee;
     margin: 0 auto;
     padding: 0;
     font-family: Lato, Roboto, 'Open Sans', sans-serif;
-    color: #4c4f5a;
+    color: #222831;
     max-width: 1200px;
+    border-left: 4px solid #393e46;
+    border-right: 4px solid #393e46;
   }
   p {
     font-size: 1.1rem;
   }
   a {
     text-decoration: none;
-    color: #0872a1;
+    color: #00adb5;
   }
 `
 
 // Set theme options here
 const theme = {
   colors: {
-    primary: '#0070f3',
+    primary: '#00adb5',
+    secondary: '#393e46',
+    base: '#eeeeee',
+    dark: '#222831'
   },
 }
 
