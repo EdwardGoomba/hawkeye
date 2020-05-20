@@ -72,12 +72,15 @@ const CameraButton = styled.button`
   text-transform: uppercase;
 `
 
-const ControlPanel = styled.div``
+const ControlPanel = styled.div`
+  display: grid;
+  justify-content: center;
+`
 
 const ControlCircle = styled.div`
   border: 1px solid #222831;
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
 `
 
