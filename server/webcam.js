@@ -1,3 +1,4 @@
+// This is not an api... its a script
 /*
  * WebCam Simulator
  *
