@@ -9,11 +9,12 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 1fr;
+  margin-bottom: 1rem;
 `
 
 const CameraContainer = styled.div`
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-template-rows: 1fr;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -21,7 +22,7 @@ const CameraContainer = styled.div`
 `
 
 const CameraViewer = styled.div`
-  width: 600px;
+  /* width: 600px; */
   height: 400px;
   overflow: hidden;
   position: relative;

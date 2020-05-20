@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1200px;
     border-left: 4px solid #393e46;
     border-right: 4px solid #393e46;
+    border-bottom: 4px solid #393e46;
   }
   p {
     font-size: 1.1rem;
