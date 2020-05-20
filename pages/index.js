@@ -3,6 +3,7 @@ import Head from 'next/head'
 import styled from 'styled-components'
 // components
 import Header from '../components/Header'
+import { move } from '../server/api'
 
 const Container = styled.div`
   display: grid;
@@ -23,6 +24,14 @@ const CameraViewer = styled.div`
   width: 600px;
   height: 400px;
   overflow: hidden;
+  position: relative;
+  border: 2px solid #222831;
+`
+
+const CameraImage = styled.img`
+  position: absolute;
+  left: 0px; top: 0px;
+  width: auto;
 `
 
 const ControlContainer = styled.div`
@@ -65,9 +74,39 @@ const CameraButton = styled.button`
 
 const ControlPanel = styled.div``
 
+const ControlCircle = styled.div`
+  border: 1px solid #222831;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+`
+
 const Home = ({ cameraData }) => {
   const [action, setAction] = useState('cameras')
   const [cameraSource, setCameraSource] = useState(cameraData[0].source)
+  const [initCoords, setInitCoords] = useState(null)
+
+  const setCoords = (event) => {
+    console.log('Camera Move Started')
+    const initX = event.clientX
+    const initY = event.clientY
+
+    setInitCoords({ initX, initY })
+  }
+
+  const setFinalCoords = () => setInitCoords(null)
+
+  const moveCamera = (event) => {
+    const xPos = event.clientX
+    const yPos = event.clientY
+
+    if (initCoords) {
+      const { initX, initY } = initCoords
+      let calcX = -(initX - xPos) / 20
+      let calcY = (initY - yPos) / 20
+      move(calcX, calcY)
+    }
+  }
 
   return (
     <Fragment>
@@ -79,7 +118,7 @@ const Home = ({ cameraData }) => {
         <Header />
         <CameraContainer>
           <CameraViewer>
-            <img src={cameraSource} />
+            <CameraImage id="cameraView" src={cameraSource} />
           </CameraViewer>
           <ControlContainer>
             <Actions>
@@ -116,7 +155,12 @@ const Home = ({ cameraData }) => {
               }
               {action === 'controls' &&
                 <ControlPanel>
-                  <p>Controls</p>
+                  <p>Click in circle and drag</p>
+                  <ControlCircle
+                    onMouseDown={(event) => setCoords(event)}
+                    onMouseUp={() => setFinalCoords()}
+                    onMouseMove={(event) => moveCamera(event)}
+                  />
                 </ControlPanel>
               }
             </Fragment>
