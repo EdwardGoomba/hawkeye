@@ -100,11 +100,31 @@ const Home = ({ cameraData }) => {
     setInitCoords({ initX, initY })
   }
 
+  const setTouchCoords = (event) => {
+    console.log('Camera Move Started')
+    const initX = event.touches[0].clientX
+    const initY = event.touches[0].clientY
+
+    setInitCoords({ initX, initY })
+  }
+
   const setFinalCoords = () => setInitCoords(null)
 
   const moveCamera = (event) => {
     const xPos = event.clientX
     const yPos = event.clientY
+
+    if (initCoords) {
+      const { initX, initY } = initCoords
+      let calcX = -(initX - xPos) / 20
+      let calcY = (initY - yPos) / 20
+      move(calcX, calcY)
+    }
+  }
+
+  const moveTouchCamera = (event) => {
+    const xPos = event.touches[0].clientX
+    const yPos = event.touches[0].clientY
 
     if (initCoords) {
       const { initX, initY } = initCoords
@@ -164,8 +184,11 @@ const Home = ({ cameraData }) => {
                   <p>Click in circle and drag</p>
                   <ControlCircle
                     onMouseDown={(event) => setCoords(event)}
+                    onTouchStart={(event) => setTouchCoords(event)}
                     onMouseUp={() => setFinalCoords()}
+                    onTouchEnd={() => setFinalCoords()}
                     onMouseMove={(event) => moveCamera(event)}
+                    onTouchMove={(event) => moveTouchCamera(event)}
                   />
                 </ControlPanel>
               }
