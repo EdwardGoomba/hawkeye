@@ -1,0 +1,22 @@
+{
+  "name": "hawkeye",
+  "version": "0.0.1",
+  "description": "Web based viewer and controller for PTZ cameras.",
+  "main": "index.js",
+  "repository": "git@github.com:EdwardGoomba/hawkeye.git",
+  "author": "EdwardGoomba <edward@dock90.io>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "yarn build && next export"
+  },
+  "dependencies": {
+    "next": "^9.4.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
+  }
+}
