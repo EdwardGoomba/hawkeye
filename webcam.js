@@ -5,7 +5,6 @@
  *
  * */
 
-
 if (!window.WebCam) {
   /**
    *

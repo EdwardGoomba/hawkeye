@@ -8,8 +8,19 @@ const Container = styled.div`
   grid-template-rows: 100px 1fr;
 `
 
-const CameraViewer = styled.div`
+const CameraContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr;
   background: yellow;
+`
+
+const CameraViewer = styled.div`
+  background: pink;
+`
+
+const ControlContainer = styled.div`
+  background: grey;
 `
 
 const Home = ({ cameraData }) => {
@@ -18,9 +29,14 @@ const Home = ({ cameraData }) => {
   return (
     <Container>
       <Header />
-      <CameraViewer>
-        <p>Camera goes here</p>
-      </CameraViewer>
+      <CameraContainer>
+        <CameraViewer>
+          <p>Camera goes here</p>
+        </CameraViewer>
+        <ControlContainer>
+          <p>Sources / Controls go here</p>
+        </ControlContainer>
+      </CameraContainer>
     </Container>
   )
 }
